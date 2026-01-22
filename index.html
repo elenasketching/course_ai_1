@@ -3,39 +3,88 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Твой стиль — твой путь</title>
-  <meta name="description" content="Атлас модных тенденций на базе ИИ: найди свой уникальный стиль и получи персональные рекомендации." />
+  <title>Свадебные тренды 2026 — демо-страница</title>
+  <meta name="description" content="Свадебные тренды 2026: платья и торты. Учебная демо-страница в редакционном стиле." />
 
   <style>
     :root{
+      /* Style tokens (редакционная роскошь, белый фон, тонкие линии) */
       --bg:#ffffff;
-      --text:#0b0b0c;
-      --muted:#6b6f76;
-      --line:#e7e9ee;
-      --soft:#f6f7f9;
-      --accent:#0b0b0c;
-      --shadow: 0 14px 40px rgba(10,12,16,.08);
+      --ink:#111111;
+      --muted:#5C5C5C;
+      --hair:#E8E8E8;
+      --soft:#F6F5F2;
+
       --radius: 18px;
       --radius-lg: 26px;
-      --max: 1120px;
+
+      --max: 1180px;
+      --text-col: 68ch;
+
+      --shadow: 0 18px 50px rgba(17,17,17,.08);
+      --shadow-soft: 0 10px 26px rgba(17,17,17,.06);
+
+      --ease: cubic-bezier(.2,.8,.2,1);
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
       background: var(--bg);
-      color: var(--text);
-      line-height: 1.4;
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
     }
-    a{ color: inherit; text-decoration: none; }
     img{ max-width:100%; display:block; }
-
-    /* Layout */
+    a{ color:inherit; text-decoration:none; }
     .container{
       width:min(var(--max), calc(100% - 40px));
       margin-inline:auto;
+    }
+    .skip{
+      position:absolute; left:-999px; top:auto;
+      width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left:16px; top:14px; width:auto; height:auto;
+      padding:10px 12px;
+      border:1px solid var(--hair);
+      border-radius: 12px;
+      background:#fff;
+      z-index:9999;
+    }
+
+    /* Typography */
+    .serif{
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+    }
+    h1,h2,h3{
+      margin:0;
+      letter-spacing: -0.02em;
+    }
+    h1{
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 0.98;
+      text-transform: uppercase;
+    }
+    h2{
+      font-size: clamp(26px, 3.3vw, 44px);
+      line-height: 1.08;
+      text-transform: uppercase;
+    }
+    h3{
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    p{ margin:0; color: var(--muted); }
+    .small{ font-size: 13px; color: var(--muted); }
+    .caps{
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     /* Header */
@@ -43,50 +92,57 @@
       position: sticky;
       top:0;
       z-index: 50;
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.78);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(231,233,238,.7);
+      border-bottom: 1px solid rgba(232,232,232,.7);
     }
     .header-row{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 14px 0;
       gap: 14px;
+      padding: 14px 0;
     }
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap: 10px;
       font-weight: 800;
-      letter-spacing: .02em;
+      letter-spacing:.02em;
+      white-space:nowrap;
     }
-    .brand-badge{
-      width: 34px;
-      height: 34px;
+    .mark{
+      width: 34px; height: 34px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #111, #444);
+      border: 1px solid var(--hair);
+      background: var(--soft);
       display:grid;
       place-items:center;
-      box-shadow: 0 10px 24px rgba(0,0,0,.12);
-      color:#fff;
-      font-size: 14px;
       font-weight: 900;
+      box-shadow: 0 10px 24px rgba(17,17,17,.08);
     }
     nav{
       display:flex;
       align-items:center;
-      gap: 18px;
-      font-size: 14px;
-      color: var(--muted);
+      gap: 10px;
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
+      max-width: 60%;
     }
     nav a{
-      padding: 10px 8px;
-      border-radius: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 10px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      white-space: nowrap;
     }
-    nav a:hover{ background: var(--soft); color: var(--text); }
-
-    .header-cta{
+    nav a:hover{
+      color: var(--ink);
+      background: var(--soft);
+      border-color: var(--hair);
+    }
+    .header-actions{
       display:flex;
       align-items:center;
       gap: 10px;
@@ -94,402 +150,273 @@
 
     /* Buttons */
     .btn{
-      border: 1px solid var(--line);
+      border: 1px solid var(--hair);
       background: #fff;
-      color: var(--text);
+      color: var(--ink);
       padding: 12px 16px;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 14px;
-      cursor:pointer;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      font-size: 13px;
+      cursor: pointer;
       display:inline-flex;
       align-items:center;
-      justify-content:center;
       gap: 10px;
+      transition: transform .15s var(--ease), box-shadow .15s var(--ease), background .15s var(--ease);
       user-select:none;
       white-space: nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 30px rgba(0,0,0,.08); }
-    .btn:active{ transform: translateY(0px); box-shadow:none; }
+    .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow-soft); }
+    .btn:active{ transform: translateY(0); box-shadow:none; }
     .btn-primary{
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--ink);
+      border-color: var(--ink);
       color:#fff;
     }
-    .btn-primary:hover{ background:#141417; border-color:#141417; }
-    .btn-ghost{
-      background: transparent;
+    .btn-primary:hover{ background:#1a1a1a; border-color:#1a1a1a; }
+
+    /* Sections */
+    section{
+      padding: 70px 0;
+      border-top: 1px solid rgba(232,232,232,.7);
+    }
+    section:first-of-type{ border-top:none; padding-top: 52px; }
+    .lead{
+      max-width: var(--text-col);
+      margin-top: 14px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+    .rule{
+      height:1px;
+      background: var(--hair);
+      margin: 26px 0 0;
     }
 
     /* Hero */
     .hero{
-      padding: 54px 0 34px;
-    }
-    .hero-grid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
-      gap: 28px;
-      align-items:center;
+      gap: 26px;
+      align-items: start;
     }
     .kicker{
       display:inline-flex;
       align-items:center;
       gap: 10px;
       padding: 8px 12px;
-      border: 1px solid var(--line);
+      border: 1px solid var(--hair);
       border-radius: 999px;
-      background: rgba(246,247,249,.7);
+      background: rgba(246,245,242,.75);
       color: var(--muted);
       font-size: 13px;
     }
     .dot{
-      width: 8px;
-      height: 8px;
-      border-radius: 99px;
-      background: #111;
-      opacity: .85;
-    }
-    h1{
-      margin: 14px 0 10px;
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.03;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-    }
-    .hero p{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 56ch;
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--ink);
+      opacity:.85;
     }
     .hero-actions{
       display:flex;
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
       margin-top: 18px;
     }
-    .hero-note{
-      margin-top: 14px;
-      font-size: 13px;
-      color: var(--muted);
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-    }
-    .hero-note svg{ flex: 0 0 auto; margin-top: 2px; opacity:.8; }
+
     .hero-card{
-      border: 1px solid var(--line);
+      border: 1px solid var(--hair);
       border-radius: var(--radius-lg);
-      background: #fff;
-      box-shadow: var(--shadow);
       overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow);
     }
-    .hero-image{
+    .hero-media{
       aspect-ratio: 16 / 10;
-      background: #f2f3f5;
-      position:relative;
-      isolation:isolate;
+      background: var(--soft);
+      position: relative;
     }
-    .hero-image img{
+    .hero-media img{
       width:100%;
       height:100%;
-      object-fit:cover;
-      filter: saturate(.95) contrast(.98);
+      object-fit: cover;
     }
-    .hero-image::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: radial-gradient(600px 300px at 70% 20%, rgba(255,255,255,.65), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-card-body{
-      padding: 18px 18px 18px;
-      display:flex;
-      gap: 12px;
-      align-items:flex-start;
-    }
-    .mini-stat{
-      flex:1;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 12px;
-      background: var(--soft);
-    }
-    .mini-stat b{ display:block; font-size: 14px; }
-    .mini-stat span{ color: var(--muted); font-size: 12px; }
-
-    /* Sections */
-    section{
-      padding: 44px 0;
-      border-top: 1px solid rgba(231,233,238,.8);
-    }
-    .section-title{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: clamp(22px, 3vw, 32px);
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-    }
-    .section-title p{
-      margin:0;
-      color: var(--muted);
-      max-width: 60ch;
-      font-size: 14px;
-    }
-
-    /* How it works */
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-    .card{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      padding: 18px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.04);
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .card:hover{ transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,.06); }
-    .icon{
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
+    .hero-media .ph{
+      position:absolute; inset:0;
       display:grid;
       place-items:center;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      margin-bottom: 12px;
-    }
-    .card h3{
-      margin: 0 0 8px;
-      font-size: 16px;
-      letter-spacing: -0.01em;
-    }
-    .card p{
-      margin: 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
+      padding: 18px;
+      text-align:center;
     }
-
-    /* Benefits */
-    .benefits{
+    .hero-meta{
+      padding: 16px 16px 18px;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 14px;
-      margin-top: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      border-top: 1px solid var(--hair);
+      background: linear-gradient(180deg, rgba(246,245,242,.85), #fff);
     }
-    .bullets{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--soft);
-      padding: 18px;
-    }
-    .bullets ul{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--text);
-    }
-    .bullets li{
-      margin: 10px 0;
-      color: var(--text);
-    }
-    .bullets li span{ color: var(--muted); }
-    .benefit-quote{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .stat{
+      border: 1px solid var(--hair);
       background: #fff;
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .stat b{ display:block; font-size: 13px; }
+    .stat span{ display:block; font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* Key points */
+    .keypoints{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
-    .pill{
+    .kp{
+      border: 1px solid var(--hair);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 16px;
+      box-shadow: 0 10px 26px rgba(17,17,17,.04);
+    }
+    .kp b{ display:block; font-size: 13px; margin-bottom: 6px; }
+    .kp span{ display:block; font-size: 13px; color: var(--muted); }
+
+    /* Bento TOC */
+    .toc{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    .toc a{
+      border: 1px solid var(--hair);
+      border-radius: var(--radius);
+      background: var(--soft);
+      padding: 14px;
+      transition: transform .15s var(--ease), background .15s var(--ease);
+      min-height: 92px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 8px;
+    }
+    .toc a:hover{ transform: translateY(-2px); background:#fff; box-shadow: 0 14px 34px rgba(17,17,17,.06); }
+    .toc a b{ font-size: 13px; }
+    .toc a span{ font-size: 12px; color: var(--muted); }
+
+    /* Editorial intro block */
+    .editorial{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 22px;
+      align-items:start;
+    }
+    .panel{
+      border: 1px solid var(--hair);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(17,17,17,.04);
+    }
+    .panel ul{
+      margin: 0;
+      padding-left: 18px;
+    }
+    .panel li{
+      margin: 10px 0;
+      color: var(--ink);
+    }
+    .panel li span{ color: var(--muted); }
+
+    /* Gallery */
+    .gallery{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    figure{
+      margin:0;
+      border: 1px solid var(--hair);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: 0 10px 26px rgba(17,17,17,.04);
+      transition: transform .15s var(--ease), box-shadow .15s var(--ease);
+    }
+    figure:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 44px rgba(17,17,17,.08);
+    }
+    .media{
+      position: relative;
+      background: var(--soft);
+      aspect-ratio: 3 / 4;
+      overflow:hidden;
+    }
+    .media img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+    .media .ph{
+      position:absolute; inset:0;
+      display:none;
+      place-items:center;
+      padding: 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+      border-bottom: 1px solid var(--hair);
+    }
+    .media.missing .ph{ display:grid; }
+    figcaption{
+      padding: 12px 12px 14px;
+      border-top: 1px solid var(--hair);
+    }
+    .tags{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .tag{
       display:inline-flex;
       align-items:center;
       gap: 8px;
-      padding: 8px 10px;
-      border: 1px solid var(--line);
+      padding: 6px 10px;
       border-radius: 999px;
-      width: fit-content;
-      background: var(--soft);
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .benefit-quote strong{
-      font-size: 18px;
-      letter-spacing: -0.01em;
-    }
-    .benefit-quote small{ color: var(--muted); }
-
-    /* Carousel */
-    .carousel-wrap{
-      margin-top: 18px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: #fff;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .carousel-top{
-      padding: 16px 18px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 16px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(246,247,249,.9), #fff);
-    }
-    .carousel-top p{
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 68ch;
-    }
-    .carousel{
-      display:flex;
-      gap: 12px;
-      padding: 18px;
-      overflow-x:auto;
-      scroll-snap-type: x mandatory;
-      scroll-padding: 18px;
-      -webkit-overflow-scrolling: touch;
-    }
-    .carousel::-webkit-scrollbar{ height: 10px; }
-    .carousel::-webkit-scrollbar-thumb{ background: #d9dde5; border-radius: 99px; }
-    .slide{
-      scroll-snap-align: start;
-      flex: 0 0 min(260px, 80%);
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      overflow:hidden;
-      background: var(--soft);
-      position:relative;
-    }
-    .slide img{
-      width:100%;
-      height: 340px;
-      object-fit: cover;
-    }
-    .slide .cap{
-      padding: 12px 12px 14px;
-      background: #fff;
-      border-top: 1px solid var(--line);
-    }
-    .slide .cap b{ display:block; font-size: 14px; }
-    .slide .cap span{ color: var(--muted); font-size: 12px; }
-
-    .dots{
-      display:flex;
-      gap: 8px;
-      padding: 14px 18px 18px;
-      border-top: 1px solid var(--line);
-      background: #fff;
-      align-items:center;
-      justify-content:center;
-    }
-    .dots a{
-      width: 10px; height: 10px;
-      border-radius: 99px;
-      background: #d5d9e2;
-      border: 1px solid #cfd4de;
-      display:inline-block;
-      transition: transform .15s ease, background .15s ease;
-    }
-    .dots a:hover{ transform: scale(1.15); background:#bfc6d4; }
-
-    /* CTA + Form */
-    .cta{
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(246,247,249,.95), #fff);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-      align-items:center;
-    }
-    .cta h3{
-      margin: 0 0 8px;
-      font-size: 22px;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-    }
-    .cta p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 62ch;
-    }
-    form{
-      width:100%;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: #fff;
-    }
-    label{
-      display:flex;
-      flex-direction:column;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    input{
-      appearance:none;
-      -webkit-appearance:none;
-      width:100%;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #fff;
-      font-size: 14px;
-      outline:none;
-      transition: border-color .15s ease, box-shadow .15s ease;
-    }
-    input:focus{
-      border-color:#c7ccd6;
-      box-shadow: 0 0 0 4px rgba(11,11,12,.08);
-    }
-    .form-actions{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-    .privacy{
+      border: 1px solid var(--hair);
+      background: rgba(246,245,242,.9);
       font-size: 12px;
       color: var(--muted);
-      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    /* How to use */
+    .how{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
     }
 
     /* FAQ */
     .faq{
+      margin-top: 22px;
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 18px;
+      gap: 12px;
     }
     details{
-      border: 1px solid var(--line);
+      border: 1px solid var(--hair);
       border-radius: var(--radius);
       background: #fff;
       padding: 14px 16px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.04);
+      box-shadow: 0 10px 26px rgba(17,17,17,.04);
     }
     summary{
       cursor:pointer;
@@ -498,82 +425,71 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 10px;
+      gap: 12px;
     }
     summary::-webkit-details-marker{ display:none; }
     details p{
-      margin: 10px 0 0;
+      margin-top: 10px;
       color: var(--muted);
       font-size: 14px;
     }
     .chev{
-      width: 18px;
-      height: 18px;
-      transition: transform .15s ease;
+      width: 18px; height: 18px;
       opacity:.7;
+      transition: transform .15s var(--ease);
       flex: 0 0 auto;
     }
     details[open] .chev{ transform: rotate(180deg); }
 
     /* Footer */
     footer{
-      padding: 26px 0 34px;
-      border-top: 1px solid rgba(231,233,238,.8);
+      padding: 26px 0 38px;
+      border-top: 1px solid rgba(232,232,232,.7);
       color: var(--muted);
     }
     .footer-row{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:space-between;
       gap: 16px;
       flex-wrap: wrap;
     }
-    .socials{
+    .foot-links{
       display:flex;
-      align-items:center;
       gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content:flex-end;
     }
-    .socials a{
-      width: 38px;
-      height: 38px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      display:grid;
-      place-items:center;
-      background: #fff;
-      transition: transform .15s ease, box-shadow .15s ease;
-      color: var(--text);
+    .foot-links a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--hair);
+      background:#fff;
+      font-size: 13px;
     }
-    .socials a:hover{ transform: translateY(-1px); box-shadow: 0 12px 30px rgba(0,0,0,.08); }
-    .muted-link{ color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+    .foot-links a:hover{ box-shadow: var(--shadow-soft); transform: translateY(-1px); }
+
+    /* Subtle reveal (очень тихо) */
+    .reveal{ opacity: 0; transform: translateY(10px); transition: opacity .45s var(--ease), transform .45s var(--ease); }
+    .reveal.is-in{ opacity: 1; transform: translateY(0); }
 
     /* Responsive */
-    @media (max-width: 920px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .benefits{ grid-template-columns: 1fr; }
-      .cta{ grid-template-columns: 1fr; }
-      .steps{ grid-template-columns: 1fr; }
+    @media (max-width: 980px){
+      .hero{ grid-template-columns: 1fr; }
+      nav{ max-width: 100%; }
+      .keypoints{ grid-template-columns: 1fr; }
+      .toc{ grid-template-columns: repeat(2, 1fr); }
+      .editorial{ grid-template-columns: 1fr; }
+      .gallery{ grid-template-columns: repeat(2, 1fr); }
+      .how{ grid-template-columns: 1fr; }
       .faq{ grid-template-columns: 1fr; }
-      nav{ display:none; }
     }
-
-    /* Accessibility helpers */
-    .skip{
-      position:absolute;
-      left:-999px;
-      top:auto;
-      width:1px;height:1px;
-      overflow:hidden;
-    }
-    .skip:focus{
-      left: 14px;
-      top: 14px;
-      width:auto;height:auto;
-      padding: 10px 12px;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius: 12px;
-      z-index: 999;
+    @media (max-width: 520px){
+      .container{ width: min(var(--max), calc(100% - 28px)); }
+      .gallery{ grid-template-columns: 1fr; }
+      .hero-meta{ grid-template-columns: 1fr; }
+      .header-actions{ display:none; }
     }
   </style>
 </head>
@@ -585,20 +501,21 @@
     <div class="container">
       <div class="header-row">
         <div class="brand" aria-label="Бренд">
-          <div class="brand-badge">AI</div>
-          <span>Атлас модных тенденций</span>
+          <div class="mark">26</div>
+          <span>Свадебные тренды</span>
         </div>
 
         <nav aria-label="Навигация">
-          <a href="#how">Как работает</a>
-          <a href="#benefits">Преимущества</a>
-          <a href="#examples">Примеры</a>
+          <a href="#toc">Оглавление</a>
+          <a href="#dresses">Платья</a>
+          <a href="#cakes">Торты</a>
+          <a href="#how">Как использовать</a>
           <a href="#faq">FAQ</a>
         </nav>
 
-        <div class="header-cta">
-          <a class="btn btn-ghost" href="#demo">Посмотреть демо</a>
-          <a class="btn btn-primary" href="#apply">Попробовать бесплатно</a>
+        <div class="header-actions">
+          <a class="btn" href="#cakes">Смотреть торты</a>
+          <a class="btn btn-primary" href="#dresses">Смотреть платья</a>
         </div>
       </div>
     </div>
@@ -606,275 +523,489 @@
 
   <main id="content">
     <!-- HERO -->
-    <section class="hero" style="border-top:none;">
+    <section>
       <div class="container">
-        <div class="hero-grid">
-          <div>
-            <div class="kicker"><span class="dot"></span> ИИ подбирает стиль по твоим предпочтениям</div>
+        <div class="hero">
+          <div class="reveal">
+            <div class="kicker"><span class="dot"></span> Учебная демо-страница — красиво, просто, понятно</div>
 
-            <h1>ТВОЙ СТИЛЬ —<br/>ТВОЙ ПУТЬ.</h1>
+            <h1 class="serif" style="margin-top:14px;">Свадебные<br>тренды 2026</h1>
 
-            <p>
-              ИИ найдёт твой уникальный модный поток: от любимых силуэтов и цветов
-              до готовых капсул и карты трендов. Веди за собой тренды, а не следуй за толпой.
+            <p class="lead">
+              Это не “один стиль”, а витрина актуальных сигналов сезона: отдельно платья и отдельно торты.
+              Формат — как редакционный каталог: белый фон, воздух, краткие заметки, аккуратная сетка.
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" id="apply" href="#cta">
-                Попробовать бесплатно
-                <span aria-hidden="true">→</span>
+              <a class="btn btn-primary" href="#dresses">Перейти к платьям →</a>
+              <a class="btn" href="#cakes">Перейти к тортам →</a>
+              <a class="btn" href="#how">Как это использовать</a>
+            </div>
+
+            <div class="keypoints">
+              <div class="kp">
+                <b class="caps">Ключевая идея</b>
+                <span>Не “как у всех”, а “как у тебя”: выбираем 2–3 сигнала и держим линию.</span>
+              </div>
+              <div class="kp">
+                <b class="caps">Формат</b>
+                <span>Каталог + подписи: что именно делает картинку “2026”.</span>
+              </div>
+              <div class="kp">
+                <b class="caps">Практика</b>
+                <span>HTML/CSS: типографика, сетки, карточки, адаптив.</span>
+              </div>
+            </div>
+
+            <div class="rule"></div>
+
+            <div id="toc" class="toc" style="margin-top:18px;">
+              <a href="#dresses">
+                <b>Раздел A — Платья 2026</b>
+                <span>7 карточек • визуальные сигналы</span>
               </a>
-              <a class="btn" id="demo" href="#examples">Посмотреть демо</a>
-              <a class="btn btn-ghost" href="#how">Как это работает</a>
-            </div>
-
-            <div class="hero-note">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 22a10 10 0 1 0-10-10 10 10 0 0 0 10 10Z" stroke="currentColor" stroke-width="1.7"/>
-                <path d="M12 7v6l4 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>Займёт 2 минуты: отвечаешь на вопросы → получаешь персональную ленту и рекомендации.</span>
+              <a href="#cakes">
+                <b>Раздел B — Торты 2026</b>
+                <span>8 карточек • фактуры и формы</span>
+              </a>
+              <a href="#how">
+                <b>Как использовать</b>
+                <span>3 сценария • без перегруза</span>
+              </a>
+              <a href="#faq">
+                <b>FAQ</b>
+                <span>что это за страница и зачем</span>
+              </a>
+              <a href="#notes">
+                <b>Заметки</b>
+                <span>как обновлять и расширять</span>
+              </a>
+              <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+                <b>Наверх</b>
+                <span>к началу страницы</span>
+              </a>
             </div>
           </div>
 
-          <div class="hero-card" aria-label="Превью интерфейса">
-            <div class="hero-image">
-              <!-- Доступная картинка (стабильная) — Picsum по ID -->
+          <aside class="hero-card reveal" aria-label="Превью">
+            <div class="hero-media">
+              <!-- Берём первое платье как обложку. Если файла нет — покажет placeholder. -->
               <img
-                src="https://picsum.photos/id/1005/1200/800"
-                alt="Минималистичный модный кадр в светлых тонах"
-                loading="lazy"
+                src="assets/img/dresses/d1.jpg"
+                alt="Обложка: платье 2026"
+                loading="eager"
+                decoding="async"
+                onerror="this.remove(); this.parentElement.classList.add('missing');"
               />
+              <div class="ph">Обложка (d1.jpg).<br>Если не видно — проверь путь: assets/img/dresses/d1.jpg</div>
             </div>
-
-            <div class="hero-card-body">
-              <div class="mini-stat">
-                <b>Персональная лента</b>
-                <span>выбранные образы + объяснения «почему подходит»</span>
+            <div class="hero-meta">
+              <div class="stat">
+                <b>Раздел A</b>
+                <span>Платья: d1–d7</span>
               </div>
-              <div class="mini-stat">
-                <b>Карта трендов</b>
-                <span>что «твоё» сейчас и что будет актуально дальше</span>
+              <div class="stat">
+                <b>Раздел B</b>
+                <span>Торты: c1–c8</span>
               </div>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
+    <!-- DRESSES -->
+    <section id="dresses">
+      <div class="container">
+        <div class="reveal">
+          <div class="caps">Раздел A</div>
+          <h2 class="serif" style="margin-top:10px;">Платья 2026</h2>
+          <p class="lead">
+            Здесь — визуальные сигналы сезона: “архитектурный” крой, дорогая простота материалов,
+            акцентные рукава и трансформируемые элементы. (Подписи — короткие, чтобы всё читалось как каталог.)
+          </p>
+
+          <div class="editorial">
+            <div class="panel">
+              <h3>Как читать карточки</h3>
+              <ul>
+                <li><b>Заголовок</b> <span>— нейтральный (без натяжек).</span></li>
+                <li><b>Теги</b> <span>— 2–3 “сигнала” сезона, которые можно повторять в деталях свадьбы.</span></li>
+                <li><b>Смысл</b> <span>— найти свою ось и не распылиться.</span></li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>Быстрый принцип</h3>
+              <ul>
+                <li><b>Выбери 2–3 тега</b> <span>и повтори их в аксессуарах / фактурах.</span></li>
+                <li><b>Оставь воздух</b> <span>— меньше “всё и сразу”, больше качества материала.</span></li>
+                <li><b>Второй образ</b> <span>— отдельный мини-момент (после церемонии).</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="gallery">
+            <!-- d1 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/dresses/d1.jpg" alt="Платье d1" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла d1.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Платье d1</h3>
+                <div class="tags">
+                  <span class="tag">архитектурный крой</span>
+                  <span class="tag">дорогая простота</span>
+                  <span class="tag">чистая линия</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- d2 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/dresses/d2.jpg" alt="Платье d2" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла d2.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Платье d2</h3>
+                <div class="tags">
+                  <span class="tag">корсет мягкий</span>
+                  <span class="tag">акцент талии</span>
+                  <span class="tag">редакционно</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- d3 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/dresses/d3.jpg" alt="Платье d3" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла d3.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Платье d3</h3>
+                <div class="tags">
+                  <span class="tag">минимализм</span>
+                  <span class="tag">сатин/микадо</span>
+                  <span class="tag">чистый объём</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- d4 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/dresses/d4.jpg" alt="Платье d4" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла d4.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Платье d4</h3>
+                <div class="tags">
+                  <span class="tag">рукава-акцент</span>
+                  <span class="tag">воздух</span>
+                  <span class="tag">фактура</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- d5 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/dresses/d5.jpg" alt="Платье d5" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла d5.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Платье d5</h3>
+                <div class="tags">
+                  <span class="tag">драпировка</span>
+                  <span class="tag">soft glamour</span>
+                  <span class="tag">комфорт</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- d6 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/dresses/d6.jpg" alt="Платье d6" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла d6.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Платье d6</h3>
+                <div class="tags">
+                  <span class="tag">кружево-акцент</span>
+                  <span class="tag">прозрачность</span>
+                  <span class="tag">умный декор</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- d7 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/dresses/d7.jpg" alt="Платье d7" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла d7.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Платье d7</h3>
+                <div class="tags">
+                  <span class="tag">трансформация</span>
+                  <span class="tag">кейп/накидка</span>
+                  <span class="tag">второй образ</span>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="small" style="margin-top:16px;">
+            Подписи и теги — редактируемые. Если хочешь, потом сделаем “точные” теги под каждый конкретный кадр.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAKES -->
+    <section id="cakes">
+      <div class="container">
+        <div class="reveal">
+          <div class="caps">Раздел B</div>
+          <h2 class="serif" style="margin-top:10px;">Торты 2026</h2>
+          <p class="lead">
+            В 2026 торт — это часть визуального сценария: форма, фактура и “честная” ручная деталь.
+            Здесь — отдельная витрина без привязки к платьям (чтобы было честно и красиво).
+          </p>
+
+          <div class="gallery" style="margin-top:22px;">
+            <!-- c1 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/cakes/c1.jpg" alt="Торт c1" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла c1.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Торт c1</h3>
+                <div class="tags">
+                  <span class="tag">скульптурная форма</span>
+                  <span class="tag">монохром</span>
+                  <span class="tag">минимализм</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- c2 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/cakes/c2.jpg" alt="Торт c2" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла c2.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Торт c2</h3>
+                <div class="tags">
+                  <span class="tag">ленты/банты</span>
+                  <span class="tag">романтика</span>
+                  <span class="tag">акцент-деталь</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- c3 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/cakes/c3.jpg" alt="Торт c3" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла c3.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Торт c3</h3>
+                <div class="tags">
+                  <span class="tag">текстуры</span>
+                  <span class="tag">ручная работа</span>
+                  <span class="tag">деликатно</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- c4 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/cakes/c4.jpg" alt="Торт c4" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла c4.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Торт c4</h3>
+                <div class="tags">
+                  <span class="tag">цветочный штрих</span>
+                  <span class="tag">fine art</span>
+                  <span class="tag">воздух</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- c5 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/cakes/c5.jpg" alt="Торт c5" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла c5.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Торт c5</h3>
+                <div class="tags">
+                  <span class="tag">ретро-пайпинг</span>
+                  <span class="tag">вкусный “винтаж”</span>
+                  <span class="tag">аккуратно</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- c6 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/cakes/c6.jpg" alt="Торт c6" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла c6.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Торт c6</h3>
+                <div class="tags">
+                  <span class="tag">фруктовый акцент</span>
+                  <span class="tag">сезонность</span>
+                  <span class="tag">легко</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- c7 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/cakes/c7.jpg" alt="Торт c7" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла c7.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Торт c7</h3>
+                <div class="tags">
+                  <span class="tag">гладкая глазурь</span>
+                  <span class="tag">quiet luxury</span>
+                  <span class="tag">чисто</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <!-- c8 -->
+            <figure>
+              <div class="media">
+                <img src="assets/img/cakes/c8.jpg" alt="Торт c8" loading="lazy" decoding="async"
+                     onerror="this.remove(); this.parentElement.classList.add('missing');" />
+                <div class="ph">Нет файла c8.jpg</div>
+              </div>
+              <figcaption>
+                <h3>Торт c8</h3>
+                <div class="tags">
+                  <span class="tag">смелая деталь</span>
+                  <span class="tag">контраст</span>
+                  <span class="tag">в кадре</span>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="small" style="margin-top:16px;">
+            Если каких-то c1–c8 пока нет — карточка не “сломается”: покажет аккуратный placeholder.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO USE -->
     <section id="how">
       <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Как работает Атлас модных тенденций?</h2>
-            <p>Три простых шага — без «магии»: только твои предпочтения, анализ данных и понятный результат.</p>
-          </div>
-        </div>
+        <div class="reveal">
+          <div class="caps">Практика</div>
+          <h2 class="serif" style="margin-top:10px;">Как использовать эту витрину</h2>
+          <p class="lead">
+            Самая полезная часть: берём не “картинки”, а <b style="color:var(--ink);">сигналы</b> (теги).
+            Выбираем 2–3 сигнала и повторяем их в деталях — так появляется цельность без натяжек.
+          </p>
 
-        <div class="steps">
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M4 20h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M7 17c2.5-2.2 4.2-3 5-3s2.5.8 5 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M12 3c2.2 0 4 1.8 4 4 0 1.4-.7 2.6-1.8 3.3-.5.3-.9.9-1 1.5l-.2 1.2h-2l-.2-1.2c-.1-.6-.5-1.2-1-1.5C8.7 9.6 8 8.4 8 7c0-2.2 1.8-4 4-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
+          <div class="how">
+            <div class="panel">
+              <h3>Для невесты</h3>
+              <ul>
+                <li><b>Выбери 2–3 тега</b> <span>из платьев (например: “дорогая простота + чистая линия”).</span></li>
+                <li><b>Повтори их</b> <span>в аксессуарах и ткани (фата/перчатки/накидка).</span></li>
+                <li><b>Оставь воздух</b> <span>— качество важнее количества деталей.</span></li>
+              </ul>
             </div>
-            <h3>Определи свои предпочтения</h3>
-            <p>Отмечаешь, что нравится: силуэты, цвета, настроение, комфорт и цели (работа/свидание/путешествие).</p>
-          </div>
 
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M12 18v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M4 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M22 12h-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M19.1 4.9l-2.8 2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M7.7 16.3l-2.8 2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M19.1 19.1l-2.8-2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M7.7 7.7 4.9 4.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
+            <div class="panel">
+              <h3>Для организатора</h3>
+              <ul>
+                <li><b>Собери сценарий</b> <span>“церемония → ужин → afterparty”.</span></li>
+                <li><b>Защити 1–2 вау-узла</b> <span>и остальное держи базой.</span></li>
+                <li><b>Свет и тайминг</b> <span>делают “дорого” быстрее, чем тонна декора.</span></li>
+              </ul>
             </div>
-            <h3>ИИ анализирует миллионы тенденций</h3>
-            <p>Сопоставляет твои ответы с трендами и сочетаниями: материалы, крой, цветовые пары и контекст.</p>
-          </div>
 
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M4 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M4 19h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M8 15l3-3 3 2 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>Ты получаешь рекомендации «под тебя»</h3>
-            <p>Готовые подборки, капсулы и лента: что купить, как сочетать и как развивать свой стиль дальше.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BENEFITS -->
-    <section id="benefits">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Преимущества</h2>
-            <p>Главное — не «как у всех», а «как у тебя»: стиль становится понятным и управляемым.</p>
-          </div>
-        </div>
-
-        <div class="benefits">
-          <div class="bullets">
-            <ul>
-              <li><b>Индивидуальность</b> <span>— рекомендации строятся на твоих ответах, а не на усреднённых трендах.</span></li>
-              <li><b>Актуальность</b> <span>— Атлас учитывает новые тенденции и реальные сочетания из разных источников.</span></li>
-              <li><b>Постоянное обновление</b> <span>— лента меняется вместе с тобой, сезоном и целями.</span></li>
-              <li><b>Визуализация</b> <span>— удобные карточки образов и «карта» направлений, чтобы видеть путь.</span></li>
-            </ul>
-          </div>
-
-          <div class="benefit-quote">
-            <div class="pill">
-              <span class="dot" style="width:7px;height:7px;"></span>
-              Пример результата
-            </div>
-            <strong>«Ваш стиль: минимализм + мягкая архитектура»</strong>
-            <small>
-              Система объясняет подбор: почему эти силуэты и оттенки работают именно с твоей внешностью/ритмом жизни,
-              и как собрать капсулу без лишних покупок.
-            </small>
-
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
-              <span class="pill">Капсула на неделю</span>
-              <span class="pill">Палитра сезона</span>
-              <span class="pill">Силуэты</span>
-              <span class="pill">Аксессуары</span>
+            <div class="panel">
+              <h3>Для дизайнера</h3>
+              <ul>
+                <li><b>Определи ось</b> <span>форма / фактура / акцент.</span></li>
+                <li><b>Сделай “сетку”</b> <span>в стиле каталога: одинаковые карточки, один ритм.</span></li>
+                <li><b>Тестируй адаптив</b> <span>— карточки должны выглядеть премиально на мобайле.</span></li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXAMPLES -->
-    <section id="examples">
+    <!-- NOTES -->
+    <section id="notes">
       <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Примеры работы</h2>
-            <p>Ниже — демо-карусель образов. Картинки здесь — заглушки (открытые), ты легко заменишь их на свои.</p>
-          </div>
-        </div>
+        <div class="reveal">
+          <div class="caps">Заметки</div>
+          <h2 class="serif" style="margin-top:10px;">Как расширять страницу позже</h2>
+          <p class="lead">
+            Если захочешь “сделать совсем правильно”, тогда да — можно пересобрать ассеты по трендам:
+            <b style="color:var(--ink);">тренд → платье → торт → сервировка/арка</b>.
+            Но текущая версия уже работает красиво, потому что держит формат подачи.
+          </p>
 
-        <div class="carousel-wrap" aria-label="Карусель примеров">
-          <div class="carousel-top">
-            <div>
-              <b style="text-transform:uppercase; letter-spacing:.02em;">Персональная лента</b>
-              <p>
-                В реальном продукте у каждого образа будет «почему подходит», варианты альтернатив и подсказки,
-                как адаптировать тренд под бюджет и контекст.
-              </p>
+          <div class="editorial">
+            <div class="panel">
+              <h3>Если добавишь “other”</h3>
+              <ul>
+                <li><b>Арки/церемония</b> <span>— 4–8 картинок.</span></li>
+                <li><b>Сервировка</b> <span>— 4–8 картинок.</span></li>
+                <li><b>Букеты</b> <span>— опционально (как мягкий акцент).</span></li>
+              </ul>
             </div>
-            <a class="btn btn-ghost" href="#cta">Записаться в бета-доступ</a>
-          </div>
-
-          <div class="carousel" role="region" aria-label="Слайды с образами">
-            <!-- Используем стабильные Picsum IDs (можно заменить на свои URL) -->
-            <article class="slide" id="look-1">
-              <img src="https://picsum.photos/id/1011/800/1100" alt="Образ 1: светлый минимализм" loading="lazy">
-              <div class="cap">
-                <b>Светлый минимализм</b>
-                <span>чистые линии • мягкая база</span>
-              </div>
-            </article>
-
-            <article class="slide" id="look-2">
-              <img src="https://picsum.photos/id/1012/800/1100" alt="Образ 2: офисная архитектура" loading="lazy">
-              <div class="cap">
-                <b>Офисная архитектура</b>
-                <span>структура • комфорт</span>
-              </div>
-            </article>
-
-            <article class="slide" id="look-3">
-              <img src="https://picsum.photos/id/1013/800/1100" alt="Образ 3: белая капсула" loading="lazy">
-              <div class="cap">
-                <b>Белая капсула</b>
-                <span>монохром • фактуры</span>
-              </div>
-            </article>
-
-            <article class="slide" id="look-4">
-              <img src="https://picsum.photos/id/1014/800/1100" alt="Образ 4: тёплая нейтральная палитра" loading="lazy">
-              <div class="cap">
-                <b>Тёплые нейтралы</b>
-                <span>беж • карамель • баланс</span>
-              </div>
-            </article>
-
-            <article class="slide" id="look-5">
-              <img src="https://picsum.photos/id/1015/800/1100" alt="Образ 5: чёрная классика" loading="lazy">
-              <div class="cap">
-                <b>Чёрная классика</b>
-                <span>драма • лаконичность</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="dots" aria-label="Навигация по слайдам">
-            <a href="#look-1" aria-label="Слайд 1"></a>
-            <a href="#look-2" aria-label="Слайд 2"></a>
-            <a href="#look-3" aria-label="Слайд 3"></a>
-            <a href="#look-4" aria-label="Слайд 4"></a>
-            <a href="#look-5" aria-label="Слайд 5"></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA + FORM -->
-    <section id="cta">
-      <div class="container">
-        <div class="cta">
-          <div>
-            <h3>Готова попробовать?</h3>
-            <p>
-              Оставь контакты — пришлём ссылку на демо/бета-доступ и краткий опрос,
-              чтобы Атлас точнее собрал твою персональную ленту.
-            </p>
-
-            <div class="hero-actions" style="margin-top:16px;">
-              <a class="btn btn-primary" href="#apply-form">Записаться в бета-доступ</a>
-              <a class="btn" href="#how">Посмотреть как работает</a>
-              <a class="btn btn-ghost" href="#examples">Снова к примерам</a>
+            <div class="panel">
+              <h3>Правильные папки</h3>
+              <ul>
+                <li><b>assets/img/dresses/</b> <span>d1…d7</span></li>
+                <li><b>assets/img/cakes/</b> <span>c1…c8</span></li>
+                <li><b>assets/img/other/ceremony/</b> <span>ar1…</span></li>
+                <li><b>assets/img/other/tablescape/</b> <span>t1…</span></li>
+              </ul>
             </div>
           </div>
 
-          <form id="apply-form" action="#" method="post">
-            <label>
-              Имя
-              <input type="text" name="name" placeholder="Например: Елена" autocomplete="name" required>
-            </label>
-
-            <label>
-              Email
-              <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-            </label>
-
-            <div class="form-actions">
-              <button class="btn btn-primary" type="submit">Оставить заявку</button>
-              <a class="btn" href="#demo">Посмотреть демо</a>
-            </div>
-
-            <div class="privacy">
-              Нажимая «Оставить заявку», ты соглашаешься на получение 1–2 писем по проекту.
-              <span class="muted-link">(Политика конфиденциальности — заглушка)</span>
-            </div>
-          </form>
+          <p class="small" style="margin-top:16px;">
+            P.S. Если где-то видишь “пустые” карточки — это значит, что соответствующего файла пока нет или имя/регистр не совпали.
+          </p>
         </div>
       </div>
     </section>
@@ -882,117 +1013,51 @@
     <!-- FAQ -->
     <section id="faq">
       <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>FAQ</h2>
-            <p>Коротко отвечаем на самые частые вопросы.</p>
-          </div>
-        </div>
+        <div class="reveal">
+          <div class="caps">FAQ</div>
+          <h2 class="serif" style="margin-top:10px;">Частые вопросы</h2>
+          <p class="lead">Коротко и по делу — чтобы страница выглядела “как продукт”, а не как набор картинок.</p>
 
-        <div class="faq">
-          <details>
-            <summary>
-              Чем вы отличаетесь от других сервисов?
-              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </summary>
-            <p>
-              Мы не просто показываем тренды — мы строим «путь»: связываем предпочтения, цели и сезон,
-              и объясняем, почему рекомендации подходят именно тебе.
-            </p>
-          </details>
+          <div class="faq">
+            <details>
+              <summary>
+                Почему платья и торты не связаны между собой?
+                <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <p>
+                Потому что это честная витрина “сигналов 2026”. Цельность создаёт формат подачи (типографика, ритм, карточки),
+                а не искусственная привязка. Если нужно — потом сделаем “тренд-наборы” как отдельный режим.
+              </p>
+            </details>
 
-          <details>
-            <summary>
-              Это про покупки или про стиль в целом?
-              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </summary>
-            <p>
-              Про стиль в целом. Можно собрать капсулу из того, что уже есть, а покупки — только точечные
-              (если нужно закрыть «дыры» в гардеробе).
-            </p>
-          </details>
+            <details>
+              <summary>
+                Что здесь тренируем как учебную работу?
+                <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <p>
+                Сетки, карточки, адаптив, аккуратные разделители, сильную типографику и “answer-first” структуру:
+                сначала ключевые тезисы, потом витрина, затем практическое применение и FAQ.
+              </p>
+            </details>
 
-          <details>
-            <summary>
-              Сколько времени нужно, чтобы получить результат?
-              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </summary>
-            <p>
-              Обычно 2–5 минут: мини-опрос → первая лента → затем можно уточнить предпочтения и получить
-              более точный «маршрут».
-            </p>
-          </details>
+            <details>
+              <summary>
+                Почему у некоторых карточек может быть placeholder?
+                <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <p>
+                Это защита от “битых” файлов. Если картинки нет — карточка остаётся красивой и сообщает, какой файл ожидается
+                (например, d6.jpg или c3.jpg).
+              </p>
+            </details>
 
-          <details>
-            <summary>
-              Можно ли заменить картинки на свои?
-              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </summary>
-            <p>
-              Да. Сейчас тут стоят открытые заглушки (picsum.photos). Просто поменяй URL в тегах
-              <code>&lt;img src="..."&gt;</code> на свои изображения или на изображения из доступного источника.
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-row">
-        <div>
-          <b style="color:var(--text);">Твой стиль — твой путь</b><br>
-          <small>© <span id="year"></span> Атлас модных тенденций. Все права защищены.</small>
-        </div>
-
-        <div class="socials" aria-label="Социальные сети">
-          <a href="#" aria-label="Twitter / X" title="Twitter / X">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="Facebook" title="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 8h2V5h-2c-2 0-4 2-4 4v3H8v3h2v6h3v-6h2.2l.8-3H13V9c0-.6.4-1 1-1Z"
-                    stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="Pinterest" title="Pinterest">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12c0 4.3 2.7 8 6.5 9.4"
-                    stroke="currentColor" stroke-width="1.8"/>
-              <path d="M9.5 20.7l1.6-6.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M16.2 9.2c.2 2.5-1.6 6.7-5 6.7-1 0-1.8-.5-2.1-1.3"
-                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="Instagram" title="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
-                    stroke="currentColor" stroke-width="1.8"/>
-              <path d="M12 16a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"
-                    stroke="currentColor" stroke-width="1.8"/>
-              <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Небольшая косметика: год в футере (не влияет на требования, можно удалить)
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+            <details>
+              <summary>
+                Как быстро заменить тексты/теги под р
