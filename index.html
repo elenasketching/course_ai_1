@@ -181,4 +181,518 @@
     .dot{
       width: 8px; height: 8px;
       border-radius: 999px;
-      background: var(--ink
+      background: var(--ink);
+      opacity:.85;
+    }
+    .hero-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .hero-card{
+      border: 1px solid var(--hair);
+      border-radius: var(--radius-lg);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow);
+    }
+    .hero-media{
+      aspect-ratio: 4 / 5;
+      background: var(--soft);
+      position: relative;
+    }
+    .hero-media img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+    .hero-media .ph{
+      position:absolute; inset:0;
+      display:none;
+      place-items:center;
+      padding: 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+      border-bottom: 1px solid var(--hair);
+      background: linear-gradient(180deg, rgba(246,245,242,.85), #fff);
+    }
+    .hero-media.missing .ph{ display:grid; }
+
+    /* Gallery */
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .count{
+      border: 1px solid var(--hair);
+      background: rgba(246,245,242,.75);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    figure{
+      margin:0;
+      border: 1px solid var(--hair);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: 0 10px 26px rgba(17,17,17,.04);
+      transition: transform .15s var(--ease), box-shadow .15s var(--ease);
+    }
+    figure:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 44px rgba(17,17,17,.08);
+    }
+    .media{
+      position: relative;
+      background: var(--soft);
+      aspect-ratio: 3 / 4;
+      overflow:hidden;
+    }
+    .media img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+    .media .ph{
+      position:absolute; inset:0;
+      display:none;
+      place-items:center;
+      padding: 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+      border-bottom: 1px solid var(--hair);
+      background: linear-gradient(180deg, rgba(246,245,242,.85), #fff);
+    }
+    .media.missing .ph{ display:grid; }
+
+    figcaption{
+      padding: 12px 12px 14px;
+      border-top: 1px solid var(--hair);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .name{
+      font-weight: 800;
+      letter-spacing:-0.01em;
+      font-size: 14px;
+    }
+    .open{
+      font-size: 13px;
+      color: var(--muted);
+      border: 1px solid var(--hair);
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 10px;
+    }
+    .open:hover{ box-shadow: var(--shadow-soft); transform: translateY(-1px); }
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    details{
+      border: 1px solid var(--hair);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 14px 14px;
+      box-shadow: 0 10px 26px rgba(17,17,17,.04);
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight: 800;
+      letter-spacing:-.01em;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 38px;
+      border-top: 1px solid rgba(232,232,232,.7);
+      color: var(--muted);
+    }
+    .footer-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .foot-note{
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{ grid-template-columns: 1fr; }
+      .gallery{ grid-template-columns: repeat(2, 1fr); }
+      .faq{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px){
+      .container{ width: min(var(--max), calc(100% - 28px)); }
+      .gallery{ grid-template-columns: 1fr; }
+      nav{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Надёжный якорь для кнопки "Наверх" -->
+  <div id="top-anchor"></div>
+
+  <header>
+    <div class="container">
+      <div class="header-row">
+        <div class="brand" aria-label="Бренд">
+          <div class="mark">26</div>
+          <span>Свадебные тренды</span>
+        </div>
+
+        <nav aria-label="Навигация">
+          <a href="#dresses">Платья</a>
+          <a href="#cakes">Торты</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section>
+      <div class="container">
+        <div class="hero">
+          <div>
+            <div class="kicker"><span class="dot"></span> Витрина вдохновения • 2026</div>
+
+            <h1 class="serif" style="margin-top:14px;">Свадебные<br>тренды 2026</h1>
+
+            <p class="lead">
+              Две подборки для вдохновения: <b style="color:var(--ink);">8 платьев</b> и <b style="color:var(--ink);">8 тортов</b>.
+              Можно просто полистать и сохранить идеи.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#dresses">Смотреть платья →</a>
+              <a class="btn" href="#cakes">Смотреть торты →</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Обложка">
+            <div class="hero-media">
+              <img
+                src="assets/img/dresses/d1.jpg"
+                alt="Свадебное платье — обложка"
+                loading="eager"
+                decoding="async"
+                onerror="this.remove(); this.parentElement.classList.add('missing');"
+              />
+              <div class="ph">Обложка скоро появится</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRESSES -->
+    <section id="dresses">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="caps">Галерея</div>
+            <h2 class="serif" style="margin-top:10px;">Платья 2026</h2>
+          </div>
+          <div class="count">8 вариантов</div>
+        </div>
+
+        <div class="gallery">
+          <!-- ПЛАТЬЯ 1–8 -->
+          <figure>
+            <div class="media">
+              <img src="assets/img/dresses/d1.jpg" alt="Платье 1" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Платье 1</span>
+              <a class="open" href="assets/img/dresses/d1.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/dresses/d2.jpg" alt="Платье 2" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Платье 2</span>
+              <a class="open" href="assets/img/dresses/d2.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/dresses/d3.jpg" alt="Платье 3" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Платье 3</span>
+              <a class="open" href="assets/img/dresses/d3.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/dresses/d4.jpg" alt="Платье 4" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Платье 4</span>
+              <a class="open" href="assets/img/dresses/d4.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/dresses/d5.jpg" alt="Платье 5" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Платье 5</span>
+              <a class="open" href="assets/img/dresses/d5.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/dresses/d6.jpg" alt="Платье 6" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Платье 6</span>
+              <a class="open" href="assets/img/dresses/d6.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/dresses/d7.jpg" alt="Платье 7" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Платье 7</span>
+              <a class="open" href="assets/img/dresses/d7.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/dresses/d8.jpg" alt="Платье 8" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Платье 8</span>
+              <a class="open" href="assets/img/dresses/d8.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAKES -->
+    <section id="cakes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="caps">Галерея</div>
+            <h2 class="serif" style="margin-top:10px;">Торты 2026</h2>
+          </div>
+          <div class="count">8 вариантов</div>
+        </div>
+
+        <div class="gallery">
+          <!-- ТОРТЫ 1–8 -->
+          <figure>
+            <div class="media">
+              <img src="assets/img/cakes/c1.jpg" alt="Торт 1" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Торт 1</span>
+              <a class="open" href="assets/img/cakes/c1.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/cakes/c2.jpg" alt="Торт 2" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Торт 2</span>
+              <a class="open" href="assets/img/cakes/c2.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/cakes/c3.jpg" alt="Торт 3" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Торт 3</span>
+              <a class="open" href="assets/img/cakes/c3.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/cakes/c4.jpg" alt="Торт 4" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Торт 4</span>
+              <a class="open" href="assets/img/cakes/c4.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/cakes/c5.jpg" alt="Торт 5" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Торт 5</span>
+              <a class="open" href="assets/img/cakes/c5.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/cakes/c6.jpg" alt="Торт 6" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Торт 6</span>
+              <a class="open" href="assets/img/cakes/c6.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/cakes/c7.jpg" alt="Торт 7" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Торт 7</span>
+              <a class="open" href="assets/img/cakes/c7.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <div class="media">
+              <img src="assets/img/cakes/c8.jpg" alt="Торт 8" loading="lazy" decoding="async"
+                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
+              <div class="ph">Скоро</div>
+            </div>
+            <figcaption>
+              <span class="name">Торт 8</span>
+              <a class="open" href="assets/img/cakes/c8.jpg" target="_blank" rel="noopener">Открыть</a>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="caps">Коротко</div>
+            <h2 class="serif" style="margin-top:10px;">FAQ</h2>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Что здесь можно посмотреть?</summary>
+            <p>Две независимые подборки: платья и торты. Это витрина вдохновения — просто пролистать и поймать настроение.</p>
+          </details>
+
+          <details>
+            <summary>Какие силуэты платьев чаще выглядят актуально в 2026?</summary>
+            <p>Часто встречаются «архитектурные» решения: удлинённый корсет, заниженная/баскская талия, чистый A-line или колонна — минимализм остаётся, просто становится «дороже» за счёт посадки.</p>
+          </details>
+
+          <details>
+            <summary>Какие ткани и фактуры смотрятся современно?</summary>
+            <p>Сатин, шёлк-микадо, плотный сатин, органза/тюль для лёгкого объёма. Кружево — чаще более графичное и «умное», без ощущения «ковра».</p>
+          </details>
+
+          <details>
+            <summary>Что с декором и деталями?</summary>
+            <p>Ленты и банты живут дальше, но обычно как один сильный акцент. Плюс трансформируемость: кейпы/накидки, съёмные элементы, второй образ для after-party.</p>
+          </details>
+
+          <details>
+            <summary>Как сделать «дорого», но без перегруза?</summary>
+            <p>Обычно работают 1–2 сильных «вау-момента», а остальное — спокойная база. Часто пары выбирают персонализацию и комфорт вместо «перформанса» и лишней суеты.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div class="foot-note">© 2026</div>
+        <a class="btn" href="#top-anchor" aria-label="Наверх">Наверх ↑</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
