@@ -246,19 +246,25 @@
       gap: 12px;
     }
 
-    figure{
-      margin:0;
+    /* Clickable card */
+    .card{
+      display:block;
       border: 1px solid var(--hair);
       border-radius: var(--radius);
       overflow:hidden;
       background:#fff;
       box-shadow: 0 10px 26px rgba(17,17,17,.04);
       transition: transform .15s var(--ease), box-shadow .15s var(--ease);
+      outline: none;
     }
-    figure:hover{
+    .card:hover{
       transform: translateY(-2px);
       box-shadow: 0 16px 44px rgba(17,17,17,.08);
     }
+    .card:focus-visible{
+      box-shadow: 0 0 0 4px rgba(17,17,17,.12), 0 16px 44px rgba(17,17,17,.08);
+    }
+
     .media{
       position: relative;
       background: var(--soft);
@@ -283,7 +289,7 @@
     }
     .media.missing .ph{ display:grid; }
 
-    figcaption{
+    .caption{
       padding: 12px 12px 14px;
       border-top: 1px solid var(--hair);
       display:flex;
@@ -296,15 +302,15 @@
       letter-spacing:-0.01em;
       font-size: 14px;
     }
-    .open{
+    .hint{
       font-size: 13px;
       color: var(--muted);
       border: 1px solid var(--hair);
-      background: #fff;
+      background: rgba(246,245,242,.75);
       border-radius: 999px;
-      padding: 8px 10px;
+      padding: 7px 10px;
+      white-space: nowrap;
     }
-    .open:hover{ box-shadow: var(--shadow-soft); transform: translateY(-1px); }
 
     /* FAQ */
     .faq{
@@ -346,9 +352,7 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-    .foot-note{
-      font-size:13px;
-    }
+    .foot-note{ font-size:13px; }
 
     /* Responsive */
     @media (max-width: 980px){
@@ -365,7 +369,6 @@
 </head>
 
 <body>
-  <!-- Надёжный якорь для кнопки "Наверх" -->
   <div id="top-anchor"></div>
 
   <header>
@@ -434,102 +437,109 @@
         </div>
 
         <div class="gallery">
-          <!-- ПЛАТЬЯ 1–8 -->
-          <figure>
+          <!-- Платье 1 -->
+          <a class="card" href="assets/img/dresses/d1.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 1">
             <div class="media">
               <img src="assets/img/dresses/d1.jpg" alt="Платье 1" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Платье 1</span>
-              <a class="open" href="assets/img/dresses/d1.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <!-- Платье 2 -->
+          <a class="card" href="assets/img/dresses/d2.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 2">
             <div class="media">
               <img src="assets/img/dresses/d2.jpg" alt="Платье 2" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Платье 2</span>
-              <a class="open" href="assets/img/dresses/d2.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <!-- Платье 3 -->
+          <a class="card" href="assets/img/dresses/d3.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 3">
             <div class="media">
               <img src="assets/img/dresses/d3.jpg" alt="Платье 3" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Платье 3</span>
-              <a class="open" href="assets/img/dresses/d3.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <!-- Платье 4 -->
+          <a class="card" href="assets/img/dresses/d4.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 4">
             <div class="media">
               <img src="assets/img/dresses/d4.jpg" alt="Платье 4" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Платье 4</span>
-              <a class="open" href="assets/img/dresses/d4.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <!-- Платье 5 -->
+          <a class="card" href="assets/img/dresses/d5.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 5">
             <div class="media">
               <img src="assets/img/dresses/d5.jpg" alt="Платье 5" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Платье 5</span>
-              <a class="open" href="assets/img/dresses/d5.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <!-- Платье 6 -->
+          <a class="card" href="assets/img/dresses/d6.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 6">
             <div class="media">
               <img src="assets/img/dresses/d6.jpg" alt="Платье 6" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Платье 6</span>
-              <a class="open" href="assets/img/dresses/d6.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <!-- Платье 7 -->
+          <a class="card" href="assets/img/dresses/d7.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 7">
             <div class="media">
               <img src="assets/img/dresses/d7.jpg" alt="Платье 7" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Платье 7</span>
-              <a class="open" href="assets/img/dresses/d7.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <!-- Платье 8 -->
+          <a class="card" href="assets/img/dresses/d8.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 8">
             <div class="media">
               <img src="assets/img/dresses/d8.jpg" alt="Платье 8" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Платье 8</span>
-              <a class="open" href="assets/img/dresses/d8.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -546,102 +556,101 @@
         </div>
 
         <div class="gallery">
-          <!-- ТОРТЫ 1–8 -->
-          <figure>
+          <a class="card" href="assets/img/cakes/c1.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 1">
             <div class="media">
               <img src="assets/img/cakes/c1.jpg" alt="Торт 1" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Торт 1</span>
-              <a class="open" href="assets/img/cakes/c1.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <a class="card" href="assets/img/cakes/c2.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 2">
             <div class="media">
               <img src="assets/img/cakes/c2.jpg" alt="Торт 2" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Торт 2</span>
-              <a class="open" href="assets/img/cakes/c2.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <a class="card" href="assets/img/cakes/c3.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 3">
             <div class="media">
               <img src="assets/img/cakes/c3.jpg" alt="Торт 3" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Торт 3</span>
-              <a class="open" href="assets/img/cakes/c3.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <a class="card" href="assets/img/cakes/c4.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 4">
             <div class="media">
               <img src="assets/img/cakes/c4.jpg" alt="Торт 4" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Торт 4</span>
-              <a class="open" href="assets/img/cakes/c4.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <a class="card" href="assets/img/cakes/c5.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 5">
             <div class="media">
               <img src="assets/img/cakes/c5.jpg" alt="Торт 5" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Торт 5</span>
-              <a class="open" href="assets/img/cakes/c5.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <a class="card" href="assets/img/cakes/c6.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 6">
             <div class="media">
               <img src="assets/img/cakes/c6.jpg" alt="Торт 6" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Торт 6</span>
-              <a class="open" href="assets/img/cakes/c6.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <a class="card" href="assets/img/cakes/c7.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 7">
             <div class="media">
               <img src="assets/img/cakes/c7.jpg" alt="Торт 7" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Торт 7</span>
-              <a class="open" href="assets/img/cakes/c7.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
 
-          <figure>
+          <a class="card" href="assets/img/cakes/c8.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 8">
             <div class="media">
               <img src="assets/img/cakes/c8.jpg" alt="Торт 8" loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentElement.classList.add('missing');" />
               <div class="ph">Скоро</div>
             </div>
-            <figcaption>
+            <div class="caption">
               <span class="name">Торт 8</span>
-              <a class="open" href="assets/img/cakes/c8.jpg" target="_blank" rel="noopener">Открыть</a>
-            </figcaption>
-          </figure>
+              <span class="hint">Открыть</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -663,23 +672,18 @@
           </details>
 
           <details>
-            <summary>Какие силуэты платьев чаще выглядят актуально в 2026?</summary>
-            <p>Часто встречаются «архитектурные» решения: удлинённый корсет, заниженная/баскская талия, чистый A-line или колонна — минимализм остаётся, просто становится «дороже» за счёт посадки.</p>
+            <summary>Какие силуэты платьев чаще выглядят актуально?</summary>
+            <p>Часто встречаются «архитектурные» решения: более чёткая линия корсета, чистый A-line или колонна, акцент на посадке и пропорциях.</p>
           </details>
 
           <details>
-            <summary>Какие ткани и фактуры смотрятся современно?</summary>
-            <p>Сатин, шёлк-микадо, плотный сатин, органза/тюль для лёгкого объёма. Кружево — чаще более графичное и «умное», без ощущения «ковра».</p>
+            <summary>Какие фактуры смотрятся современно?</summary>
+            <p>Плотный сатин/микадо, органза для лёгкого объёма, тюль — для воздушности. Кружево — чаще более графичное и спокойное.</p>
           </details>
 
           <details>
-            <summary>Что с декором и деталями?</summary>
-            <p>Ленты и банты живут дальше, но обычно как один сильный акцент. Плюс трансформируемость: кейпы/накидки, съёмные элементы, второй образ для after-party.</p>
-          </details>
-
-          <details>
-            <summary>Как сделать «дорого», но без перегруза?</summary>
-            <p>Обычно работают 1–2 сильных «вау-момента», а остальное — спокойная база. Часто пары выбирают персонализацию и комфорт вместо «перформанса» и лишней суеты.</p>
+            <summary>Какой торт выглядит актуально на фото?</summary>
+            <p>Хорошо работают чистые формы, тонкий рельеф, натуральные детали (цветы/фрукты/текстура крема) и аккуратная композиция без перегруза.</p>
           </details>
         </div>
       </div>
