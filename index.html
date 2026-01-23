@@ -1,702 +1,588 @@
-<!doctype html>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Свадебные тренды 2026 — платья и торты</title>
-  <meta name="description" content="Свадебные тренды 2026: 8 платьев и 8 тортов. Лёгкая витрина вдохновения." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Trends 2026</title>
+    
+    <!-- Google Fonts: Cormorant (serif) + Inter (sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #FFFFFF;
+            color: #111111;
+            line-height: 1.6;
+        }
+        
+        /* ========== TYPOGRAPHY ========== */
+        h1, h2, h3 {
+            font-family: 'Cormorant', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+        }
+        
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #5C5C5C;
+        }
+        
+        /* ========== LAYOUT ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* ========== HEADER ========== */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid #E8E8E8;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111;
+            text-decoration: none;
+        }
+        
+        nav a {
+            font-size: 0.875rem;
+            color: #5C5C5C;
+            text-decoration: none;
+            margin-left: 32px;
+            transition: color 0.2s ease;
+        }
+        
+        nav a:hover {
+            color: #111;
+        }
+        
+        /* ========== HERO ========== */
+        .hero {
+            padding: 120px 0 96px;
+            text-align: center;
+        }
+        
+        .hero .section-label {
+            margin-bottom: 16px;
+        }
+        
+        .hero h1 {
+            margin-bottom: 24px;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Cormorant', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #5C5C5C;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* ========== KEY POINTS ========== */
+        .key-points {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 1px solid #E8E8E8;
+        }
+        
+        .key-point {
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .key-point-number {
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            color: #E8E8E8;
+            margin-bottom: 8px;
+        }
+        
+        .key-point p {
+            font-size: 0.875rem;
+            color: #5C5C5C;
+        }
+        
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 96px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .section-header .section-label {
+            margin-bottom: 12px;
+        }
+        
+        .section-line {
+            width: 48px;
+            height: 1px;
+            background: #E8E8E8;
+            margin: 24px auto 0;
+        }
+        
+        /* ========== GALLERY GRID ========== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ========== GALLERY ITEM ========== */
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            cursor: pointer;
+            background: #F6F5F2;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            color: #fff;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-label {
+            opacity: 1;
+        }
+        
+        /* ========== LIGHTBOX ========== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-close::before,
+        .lightbox-close::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 1px;
+            background: #fff;
+        }
+        
+        .lightbox-close::before {
+            transform: rotate(45deg);
+        }
+        
+        .lightbox-close::after {
+            transform: rotate(-45deg);
+        }
+        
+        .lightbox-close:hover::before,
+        .lightbox-close:hover::after {
+            background: #ccc;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s ease;
+        }
+        
+        .lightbox-nav:hover {
+            border-color: #fff;
+        }
+        
+        .lightbox-prev {
+            left: 24px;
+        }
+        
+        .lightbox-next {
+            right: 24px;
+        }
+        
+        .lightbox-nav::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #fff;
+            border-right: 1px solid #fff;
+        }
+        
+        .lightbox-prev::before {
+            transform: rotate(-135deg);
+            margin-left: 4px;
+        }
+        
+        .lightbox-next::before {
+            transform: rotate(45deg);
+            margin-right: 4px;
+        }
+        
+        lightbox-caption {
+    position: fixed;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    color: #fff;
+    font-size: 0.875rem;
+    text-align: center;
+    padding: 12px 24px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 1001;  /* ← добавь эту строку */
+}
 
-  <style>
-    :root{
-      --bg:#ffffff;
-      --ink:#111111;
-      --muted:#5C5C5C;
-      --hair:#E8E8E8;
-      --soft:#F6F5F2;
-
-      --radius: 18px;
-      --radius-lg: 28px;
-
-      --max: 1180px;
-      --text-col: 66ch;
-
-      --shadow: 0 18px 50px rgba(17,17,17,.08);
-      --shadow-soft: 0 10px 26px rgba(17,17,17,.06);
-
-      --ease: cubic-bezier(.2,.8,.2,1);
-    }
-
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      line-height: 1.55;
-      text-rendering: optimizeLegibility;
-    }
-    img{ max-width:100%; display:block; }
-    a{ color:inherit; text-decoration:none; }
-
-    .container{
-      width:min(var(--max), calc(100% - 40px));
-      margin-inline:auto;
-    }
-
-    /* Scroll offset for sticky header */
-    section{ scroll-margin-top: 86px; }
-
-    /* Typography */
-    .serif{ font-family: ui-serif, Georgia, "Times New Roman", Times, serif; }
-    h1,h2{ margin:0; letter-spacing:-0.02em; }
-    h1{
-      font-size: clamp(40px, 6vw, 78px);
-      line-height: 0.98;
-      text-transform: uppercase;
-    }
-    h2{
-      font-size: clamp(26px, 3.2vw, 44px);
-      line-height: 1.08;
-      text-transform: uppercase;
-    }
-    p{ margin:0; color: var(--muted); }
-    .lead{
-      max-width: var(--text-col);
-      margin-top: 14px;
-      font-size: 16px;
-      color: var(--muted);
-    }
-    .caps{
-      font-size: 12px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* Header */
-    header{
-      position: sticky;
-      top:0;
-      z-index: 50;
-      background: rgba(255,255,255,.82);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(232,232,232,.7);
-    }
-    .header-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      padding: 14px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-weight: 800;
-      letter-spacing:.02em;
-      white-space:nowrap;
-    }
-    .mark{
-      width: 34px; height: 34px;
-      border-radius: 12px;
-      border: 1px solid var(--hair);
-      background: var(--soft);
-      display:grid;
-      place-items:center;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(17,17,17,.08);
-    }
-    nav{
-      display:flex;
-      align-items:center;
-      gap: 6px;
-      overflow:auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    nav a{
-      font-size: 13px;
-      color: var(--muted);
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-    nav a:hover{
-      color: var(--ink);
-      background: var(--soft);
-      border-color: var(--hair);
-    }
-
-    .btn{
-      border: 1px solid var(--hair);
-      background: #fff;
-      color: var(--ink);
-      padding: 12px 16px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      transition: transform .15s var(--ease), box-shadow .15s var(--ease), background .15s var(--ease);
-      user-select:none;
-      white-space: nowrap;
-    }
-    .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow-soft); }
-    .btn-primary{
-      background: var(--ink);
-      border-color: var(--ink);
-      color:#fff;
-    }
-    .btn-primary:hover{ background:#1a1a1a; border-color:#1a1a1a; }
-
-    /* Sections */
-    section{
-      padding: 70px 0;
-      border-top: 1px solid rgba(232,232,232,.7);
-    }
-    section:first-of-type{ border-top:none; padding-top: 54px; }
-
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 26px;
-      align-items: start;
-    }
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 8px 12px;
-      border: 1px solid var(--hair);
-      border-radius: 999px;
-      background: rgba(246,245,242,.75);
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .dot{
-      width: 8px; height: 8px;
-      border-radius: 999px;
-      background: var(--ink);
-      opacity:.85;
-    }
-    .hero-actions{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .hero-card{
-      border: 1px solid var(--hair);
-      border-radius: var(--radius-lg);
-      overflow:hidden;
-      background:#fff;
-      box-shadow: var(--shadow);
-    }
-    .hero-media{
-      aspect-ratio: 4 / 5;
-      background: var(--soft);
-      position: relative;
-    }
-    .hero-media img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-    }
-    .hero-media .ph{
-      position:absolute; inset:0;
-      display:none;
-      place-items:center;
-      padding: 18px;
-      text-align:center;
-      color: var(--muted);
-      font-size: 13px;
-      border-bottom: 1px solid var(--hair);
-      background: linear-gradient(180deg, rgba(246,245,242,.85), #fff);
-    }
-    .hero-media.missing .ph{ display:grid; }
-
-    /* Gallery */
-    .section-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-    .count{
-      border: 1px solid var(--hair);
-      background: rgba(246,245,242,.75);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    /* Clickable card */
-    .card{
-      display:block;
-      border: 1px solid var(--hair);
-      border-radius: var(--radius);
-      overflow:hidden;
-      background:#fff;
-      box-shadow: 0 10px 26px rgba(17,17,17,.04);
-      transition: transform .15s var(--ease), box-shadow .15s var(--ease);
-      outline: none;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 16px 44px rgba(17,17,17,.08);
-    }
-    .card:focus-visible{
-      box-shadow: 0 0 0 4px rgba(17,17,17,.12), 0 16px 44px rgba(17,17,17,.08);
-    }
-
-    .media{
-      position: relative;
-      background: var(--soft);
-      aspect-ratio: 3 / 4;
-      overflow:hidden;
-    }
-    .media img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-    }
-    .media .ph{
-      position:absolute; inset:0;
-      display:none;
-      place-items:center;
-      padding: 18px;
-      text-align:center;
-      color: var(--muted);
-      font-size: 13px;
-      border-bottom: 1px solid var(--hair);
-      background: linear-gradient(180deg, rgba(246,245,242,.85), #fff);
-    }
-    .media.missing .ph{ display:grid; }
-
-    .caption{
-      padding: 12px 12px 14px;
-      border-top: 1px solid var(--hair);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-    }
-    .name{
-      font-weight: 800;
-      letter-spacing:-0.01em;
-      font-size: 14px;
-    }
-    .hint{
-      font-size: 13px;
-      color: var(--muted);
-      border: 1px solid var(--hair);
-      background: rgba(246,245,242,.75);
-      border-radius: 999px;
-      padding: 7px 10px;
-      white-space: nowrap;
-    }
-
-    /* FAQ */
-    .faq{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 16px;
-    }
-    details{
-      border: 1px solid var(--hair);
-      border-radius: var(--radius);
-      background: #fff;
-      padding: 14px 14px;
-      box-shadow: 0 10px 26px rgba(17,17,17,.04);
-    }
-    summary{
-      cursor:pointer;
-      list-style:none;
-      font-weight: 800;
-      letter-spacing:-.01em;
-    }
-    summary::-webkit-details-marker{ display:none; }
-    details p{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* Footer */
-    footer{
-      padding: 26px 0 38px;
-      border-top: 1px solid rgba(232,232,232,.7);
-      color: var(--muted);
-    }
-    .footer-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .foot-note{ font-size:13px; }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero{ grid-template-columns: 1fr; }
-      .gallery{ grid-template-columns: repeat(2, 1fr); }
-      .faq{ grid-template-columns: 1fr; }
-    }
-    @media (max-width: 520px){
-      .container{ width: min(var(--max), calc(100% - 28px)); }
-      .gallery{ grid-template-columns: 1fr; }
-      nav{ display:none; }
-    }
-  </style>
+        
+        /* ========== FOOTER ========== */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid #E8E8E8;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 0.75rem;
+            color: #5C5C5C;
+            margin-bottom: 8px;
+        }
+        
+        footer .note {
+            font-style: italic;
+            color: #999;
+        }
+    </style>
 </head>
-
 <body>
-  <div id="top-anchor"></div>
 
-  <header>
-    <div class="container">
-      <div class="header-row">
-        <div class="brand" aria-label="Бренд">
-          <div class="mark">26</div>
-          <span>Свадебные тренды</span>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Wedding Trends</a>
+            <nav>
+                <a href="#gowns">Gowns</a>
+                <a href="#cakes">Cakes</a>
+            </nav>
         </div>
+    </header>
 
-        <nav aria-label="Навигация">
-          <a href="#dresses">Платья</a>
-          <a href="#cakes">Торты</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
     <!-- HERO -->
-    <section>
-      <div class="container">
-        <div class="hero">
-          <div>
-            <div class="kicker"><span class="dot"></span> Витрина вдохновения • 2026</div>
-
-            <h1 class="serif" style="margin-top:14px;">Свадебные<br>тренды 2026</h1>
-
-            <p class="lead">
-              Две подборки для вдохновения: <b style="color:var(--ink);">8 платьев</b> и <b style="color:var(--ink);">8 тортов</b>.
-              Можно просто полистать и сохранить идеи.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#dresses">Смотреть платья →</a>
-              <a class="btn" href="#cakes">Смотреть торты →</a>
+    <section class="hero">
+        <div class="container">
+            <p class="section-label">Collection 2026</p>
+            <h1>The Art of Celebration</h1>
+            <p class="hero-subtitle">A curated selection of wedding trends — gowns and cakes that define the season</p>
+            
+            <div class="key-points">
+                <div class="key-point">
+                    <div class="key-point-number">01</div>
+                    <p>Timeless silhouettes with modern details</p>
+                </div>
+                <div class="key-point">
+                    <div class="key-point-number">02</div>
+                    <p>Organic textures and natural elegance</p>
+                </div>
+                <div class="key-point">
+                    <div class="key-point-number">03</div>
+                    <p>Artisanal craftsmanship in every element</p>
+                </div>
             </div>
-          </div>
-
-          <aside class="hero-card" aria-label="Обложка">
-            <div class="hero-media">
-              <img
-                src="assets/img/dresses/d1.jpg"
-                alt="Свадебное платье — обложка"
-                loading="eager"
-                decoding="async"
-                onerror="this.remove(); this.parentElement.classList.add('missing');"
-              />
-              <div class="ph">Обложка скоро появится</div>
-            </div>
-          </aside>
         </div>
-      </div>
     </section>
 
-    <!-- DRESSES -->
-    <section id="dresses">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="caps">Галерея</div>
-            <h2 class="serif" style="margin-top:10px;">Платья 2026</h2>
-          </div>
-          <div class="count">8 вариантов</div>
+    <!-- GOWNS -->
+    <section id="gowns">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Chapter One</p>
+                <h2>Gowns</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="gallery-grid" data-gallery="gowns">
+                <div class="gallery-item" data-index="0">
+                    <img src="assets/img/dresses/d1.jpg" alt="Wedding gown — Classic fitted silhouette">
+                    <div class="gallery-item-label">Classic Fitted</div>
+                </div>
+                <div class="gallery-item" data-index="1">
+                    <img src="assets/img/dresses/d2.jpg" alt="Wedding gown — Structured ballgown">
+                    <div class="gallery-item-label">Structured Ballgown</div>
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img src="assets/img/dresses/d3.jpg" alt="Wedding gown — Minimalist column">
+                    <div class="gallery-item-label">Minimalist Column</div>
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <img src="assets/img/dresses/d4.jpg" alt="Wedding gown — Romantic lace">
+                    <div class="gallery-item-label">Romantic Lace</div>
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <img src="assets/img/dresses/d5.jpg" alt="Wedding gown — Modern sheer">
+                    <div class="gallery-item-label">Modern Sheer</div>
+                </div>
+                <div class="gallery-item" data-index="5">
+                    <img src="assets/img/dresses/d6.jpg" alt="Wedding gown — Garden elegance">
+                    <div class="gallery-item-label">Garden Elegance</div>
+                </div>
+                <div class="gallery-item" data-index="6">
+                    <img src="assets/img/dresses/d7.jpg" alt="Wedding gown — Sculptural bow">
+                    <div class="gallery-item-label">Sculptural Bow</div>
+                </div>
+                <div class="gallery-item" data-index="7">
+                    <img src="assets/img/dresses/d8.jpg" alt="Wedding gown — Timeless A-line">
+                    <div class="gallery-item-label">Timeless A-Line</div>
+                </div>
+            </div>
         </div>
-
-        <div class="gallery">
-          <!-- Платье 1 -->
-          <a class="card" href="assets/img/dresses/d1.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 1">
-            <div class="media">
-              <img src="assets/img/dresses/d1.jpg" alt="Платье 1" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Платье 1</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <!-- Платье 2 -->
-          <a class="card" href="assets/img/dresses/d2.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 2">
-            <div class="media">
-              <img src="assets/img/dresses/d2.jpg" alt="Платье 2" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Платье 2</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <!-- Платье 3 -->
-          <a class="card" href="assets/img/dresses/d3.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 3">
-            <div class="media">
-              <img src="assets/img/dresses/d3.jpg" alt="Платье 3" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Платье 3</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <!-- Платье 4 -->
-          <a class="card" href="assets/img/dresses/d4.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 4">
-            <div class="media">
-              <img src="assets/img/dresses/d4.jpg" alt="Платье 4" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Платье 4</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <!-- Платье 5 -->
-          <a class="card" href="assets/img/dresses/d5.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 5">
-            <div class="media">
-              <img src="assets/img/dresses/d5.jpg" alt="Платье 5" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Платье 5</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <!-- Платье 6 -->
-          <a class="card" href="assets/img/dresses/d6.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 6">
-            <div class="media">
-              <img src="assets/img/dresses/d6.jpg" alt="Платье 6" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Платье 6</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <!-- Платье 7 -->
-          <a class="card" href="assets/img/dresses/d7.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 7">
-            <div class="media">
-              <img src="assets/img/dresses/d7.jpg" alt="Платье 7" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Платье 7</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <!-- Платье 8 -->
-          <a class="card" href="assets/img/dresses/d8.jpg" target="_blank" rel="noopener" aria-label="Открыть: Платье 8">
-            <div class="media">
-              <img src="assets/img/dresses/d8.jpg" alt="Платье 8" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Платье 8</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-        </div>
-      </div>
     </section>
 
     <!-- CAKES -->
     <section id="cakes">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="caps">Галерея</div>
-            <h2 class="serif" style="margin-top:10px;">Торты 2026</h2>
-          </div>
-          <div class="count">8 вариантов</div>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Chapter Two</p>
+                <h2>Cakes</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="gallery-grid" data-gallery="cakes">
+                <div class="gallery-item" data-index="0">
+                    <img src="assets/img/cakes/c1.jpg" alt="Wedding cake — Floral cascade">
+                    <div class="gallery-item-label">Floral Cascade</div>
+                </div>
+                <div class="gallery-item" data-index="1">
+                    <img src="assets/img/cakes/c2.jpg" alt="Wedding cake — Minimalist tiers">
+                    <div class="gallery-item-label">Minimalist Tiers</div>
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img src="assets/img/cakes/c3.jpg" alt="Wedding cake — Textured buttercream">
+                    <div class="gallery-item-label">Textured Buttercream</div>
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <img src="assets/img/cakes/c4.jpg" alt="Wedding cake — Garden inspired">
+                    <div class="gallery-item-label">Garden Inspired</div>
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <img src="assets/img/cakes/c5.jpg" alt="Wedding cake — Organic elegance">
+                    <div class="gallery-item-label">Organic Elegance</div>
+                </div>
+                <div class="gallery-item" data-index="5">
+                    <img src="assets/img/cakes/c6.jpg" alt="Wedding cake — Classic white">
+                    <div class="gallery-item-label">Classic White</div>
+                </div>
+                <div class="gallery-item" data-index="6">
+                    <img src="assets/img/cakes/c7.jpg" alt="Wedding cake — Botanical accent">
+                    <div class="gallery-item-label">Botanical Accent</div>
+                </div>
+                <div class="gallery-item" data-index="7">
+                    <img src="assets/img/cakes/c8.jpg" alt="Wedding cake — Modern sculpture">
+                    <div class="gallery-item-label">Modern Sculpture</div>
+                </div>
+            </div>
         </div>
-
-        <div class="gallery">
-          <a class="card" href="assets/img/cakes/c1.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 1">
-            <div class="media">
-              <img src="assets/img/cakes/c1.jpg" alt="Торт 1" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Торт 1</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <a class="card" href="assets/img/cakes/c2.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 2">
-            <div class="media">
-              <img src="assets/img/cakes/c2.jpg" alt="Торт 2" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Торт 2</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <a class="card" href="assets/img/cakes/c3.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 3">
-            <div class="media">
-              <img src="assets/img/cakes/c3.jpg" alt="Торт 3" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Торт 3</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <a class="card" href="assets/img/cakes/c4.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 4">
-            <div class="media">
-              <img src="assets/img/cakes/c4.jpg" alt="Торт 4" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Торт 4</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <a class="card" href="assets/img/cakes/c5.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 5">
-            <div class="media">
-              <img src="assets/img/cakes/c5.jpg" alt="Торт 5" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Торт 5</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <a class="card" href="assets/img/cakes/c6.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 6">
-            <div class="media">
-              <img src="assets/img/cakes/c6.jpg" alt="Торт 6" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Торт 6</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <a class="card" href="assets/img/cakes/c7.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 7">
-            <div class="media">
-              <img src="assets/img/cakes/c7.jpg" alt="Торт 7" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Торт 7</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-
-          <a class="card" href="assets/img/cakes/c8.jpg" target="_blank" rel="noopener" aria-label="Открыть: Торт 8">
-            <div class="media">
-              <img src="assets/img/cakes/c8.jpg" alt="Торт 8" loading="lazy" decoding="async"
-                   onerror="this.remove(); this.parentElement.classList.add('missing');" />
-              <div class="ph">Скоро</div>
-            </div>
-            <div class="caption">
-              <span class="name">Торт 8</span>
-              <span class="hint">Открыть</span>
-            </div>
-          </a>
-        </div>
-      </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="caps">Коротко</div>
-            <h2 class="serif" style="margin-top:10px;">FAQ</h2>
-          </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>Wedding Trends 2026 · A Visual Collection</p>
+            <p class="note">AI-generated imagery · Course demo project</p>
         </div>
+    </footer>
 
-        <div class="faq">
-          <details>
-            <summary>Что здесь можно посмотреть?</summary>
-            <p>Две независимые подборки: платья и торты. Это витрина вдохновения — просто пролистать и поймать настроение.</p>
-          </details>
-
-          <details>
-            <summary>Какие силуэты платьев чаще выглядят актуально?</summary>
-            <p>Часто встречаются «архитектурные» решения: более чёткая линия корсета, чистый A-line или колонна, акцент на посадке и пропорциях.</p>
-          </details>
-
-          <details>
-            <summary>Какие фактуры смотрятся современно?</summary>
-            <p>Плотный сатин/микадо, органза для лёгкого объёма, тюль — для воздушности. Кружево — чаще более графичное и спокойное.</p>
-          </details>
-
-          <details>
-            <summary>Какой торт выглядит актуально на фото?</summary>
-            <p>Хорошо работают чистые формы, тонкий рельеф, натуральные детали (цветы/фрукты/текстура крема) и аккуратная композиция без перегруза.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-row">
-        <div class="foot-note">© 2026</div>
-        <a class="btn" href="#top-anchor" aria-label="Наверх">Наверх ↑</a>
-      </div>
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close"></button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous"></button>
+        <button class="lightbox-nav lightbox-next" aria-label="Next"></button>
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
-  </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const prevBtn = document.querySelector('.lightbox-prev');
+        const nextBtn = document.querySelector('.lightbox-next');
+        
+        let currentGallery = [];
+        let currentIndex = 0;
+        
+        // Get all gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const gallery = item.closest('.gallery-grid');
+                currentGallery = Array.from(gallery.querySelectorAll('.gallery-item'));
+                currentIndex = parseInt(item.dataset.index);
+                openLightbox();
+            });
+        });
+        
+        function openLightbox() {
+            const item = currentGallery[currentIndex];
+            const img = item.querySelector('img');
+            const label = item.querySelector('.gallery-item-label');
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            if (label) {
+    lightboxCaption.textContent = label.textContent;
+    lightboxCaption.style.display = 'block';
+} else {
+    lightboxCaption.style.display = 'none';
+}
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            openLightbox();
+        }
+        
+        function showNext() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            openLightbox();
+        }
+        
+        // Event listeners
+        closeBtn.addEventListener('click', closeLightbox);
+        prevBtn.addEventListener('click', showPrev);
+        nextBtn.addEventListener('click', showNext);
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        });
+    </script>
+
 </body>
 </html>
